@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Registration Complete{% endblock title %}
+{% block contents %}
+<div classs="container">
+    <div class="row">
+        <div class="col offset-4 py-4">
+            <h3>登録が完了しました</h3>
+            <p><a href={%url 'accounts:loginpage'%}>ログインはこちら</a></p>
+        </div>
+    </dib>
+</div>
+{% endblock contents %}

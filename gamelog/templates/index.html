@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}ゲームWIKI {% endblock title %}
+{%block header%}
+<div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-end">
+            <h1 class="text-white font-weight-bold">ゲームWIKIへようこそ</h1>
+            <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 mb-5">ここでは様々なゲームに関する攻略情報をお届けしていきます！</p>
+            <a class="btn btn-primary btn-xl" href="#about">情報を探してみる</a>
+        </div>
+    </div>
+</div>
+{%endblock header%}
+    {%block contents%}
+        <!-- About-->
+        <section class="page-section bg-primary" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">必要な情報がすべてここに</h2>
+                        <hr class="divider divider-light" />
+                        <p class="text-white-75 mb-4">最新のゲームから昔懐かしのレトロゲームまで、すべての攻略がここに乗っています</p>
+                        <a class="btn btn-light btn-xl" href="#services">始めてみる</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services-->
+        <!-- Portfolio-->
+        <div id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href={%url 'gamelog:games_cat' Category=1%} title="Project Name">
+                            <img class="img-fluid" src={% static "assets/img/portfolio/thumbnails/minecraft.jpg" %} alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Minecraft</div>
+                                <div class="project-name">Minecraft</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href={% url 'gamelog:games_cat' Category=3%} title="Project Name">
+                            <img class="img-fluid" src={% static "assets/img/portfolio/thumbnails/mh.jpg" %} alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Monstar Hunter</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href={% url 'gamelog:games_cat' Category=5 %}  title="Project Name">
+                            <img class="img-fluid" src={% static "assets/img/portfolio/thumbnails/Fortnite.jpg" %} alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Fortnite</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href={% url 'gamelog:games_cat' Category=2 %}  title="Project Name">
+                            <img class="img-fluid" src={% static "assets/img/portfolio/thumbnails/pokemon.jpg" %} alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Pokemon</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href={% url 'gamelog:games_cat' Category=4 %} title="Project Name">
+                            <img class="img-fluid" src={% static "assets/img/portfolio/thumbnails/mario.png" %} alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Super Mario</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href={% url 'gamelog:games_cat' Category=6 %} title="Project Name">
+                            <img class="img-fluid" src={% static "assets/img/portfolio/thumbnails/valorant.png" %} alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Valorant</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%endblock%}
+    {%block main%}
+        <!-- Call to action-->
+        <section class="page-section bg-dark text-white">
+            <div class="container px-4 px-lg-5 text-center">
+                <h2 class="mb-4">登録はこちらから</h2>
+                <a class="btn btn-light btn-xl" href={%url 'gamelog:login'%}>アカウント登録</a>
+            </div>
+        </section>
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+                        <a class="btn btn-light btn-xl" href={%url 'gamelog:login'%}><h2>お問い合わせ</h2></a>
+                        <p class="text-muted mb-5">お問い合わせやご連絡などがございました上のフォームからご連絡ください</p>
+                    </div>
+                </div>
+    {%endblock%}
+        <!-- Footer-->
+</html>

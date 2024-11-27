@@ -1,0 +1,58 @@
+<!-- ベーステンプレートを適用する -->
+{% extends 'base.html' %}
+<!-- ヘッダー情報のページタイトルを設定する -->
+{% block title %}投稿する{% endblock %}
+{%block header%}
+<div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-end">
+            <h1 class="text-white font-weight-bold">ゲームWIKIに投稿する</h1>
+            <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 mb-5">公序良俗に反しないようマナーを守った投稿をお願いします</p>
+            <a class="btn btn-primary btn-xl" href="#post">投稿</a>
+        </div>
+    </div>
+</div>
+{%endblock header%}
+    {% block contents %}
+    <section id="post">
+      <!-- Bootstrapのグリッドシステム -->
+      <br>
+      <div class="container">
+        <!-- 行を配置 -->
+        <div class="row">
+          <!-- 列の左右に余白offset-2を入れる -->
+          <div class="col offset-2">
+            <!-- ファイルをアップロードする場合は
+                 enctype="multipart/form-data"が必要 -->
+            <form method="POST"
+                  enctype="multipart/form-data">
+              {% csrf_token %}
+              <table>
+                <tr>
+                  <th>カテゴリ</th>
+                  <td>{{ form.Category }}</td>
+                </tr>
+                <tr>
+                  <th>タイトル</th>
+                  <td>{{ form.title }}</td>
+                </tr>
+                <tr>
+                  <th>コメント</th>
+                  <td>{{ form.content }}</td>
+                </tr>
+                <tr>
+                  <th>画像1</th>
+                  <td>{{ form.image1 }}</td>
+                </tr>
+              </table>
+              <hr>
+              <button type="submit">投稿する</button>
+            </form>        
+          </dv>
+        </dv>
+      </dv>
+    </section>
+      {% endblock %}

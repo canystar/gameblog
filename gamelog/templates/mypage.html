@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Mypage{% endblock %}
+
+{%block header%}
+<div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-end">
+            <h1 class="text-white font-weight-bold">{{user.username}}さんのマイページ</h1>
+            <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 mb-5"></p>
+            <a class="btn btn-primary btn-xl" href="#about">掲示板を見る</a>
+            <a class="btn btn-primary btn-xl" href={%url 'gamelog:post'%}>投稿する</a>
+        </div>
+    </div>
+</div>
+{%endblock header%}
+    {% block contents %}
+
+    {% if user.is_authenticated %}
+    <br>
+    <div style="text-align:center">
+        <h4>{{user.username}}さんの投稿一覧</h4>
+        {% if object_list.count == 0 %}
+            <p>{{user.username}}さんの投稿はありません</p>
+        {% else %}
+            <p>投稿<strong>{{object_list.count}}</strong>件</p>
+        {% endif %}
+    </div>
+    <hr>
+    {% endif %}
+    {%include "content copy.html"%}
+    {%include "pagination.html"%}
+    {% endblock %}

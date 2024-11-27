@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}アカウント登録{% endblock%}
+{% block header %}
+<div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-end">
+            <h1 class="text-white font-weight-bold">アカウント登録</h1>
+            <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 mb-5">下のフォームにご入力をお願いします</p>
+            <a class="text-white-100 mb-4" href={%url 'gamelog:index'%}>メインページに戻る</a>
+        </div>
+    </div>
+</div>
+{% endblock header %}
+ 
+    {% block contents %}
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col offset-2">
+                <h3>サインアップ</h3>
+                <form method = "post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <p>
+                        {{ field.label_tag}}<br>
+                        {{ field }}
+                        {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p style="color: red">{{error}}</p>
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+                    <p style="color:red">
+                        ※メールアドレスはパスワードをリセットする際に必要になりますので、
+                        登録をお願いします。
+                    </p>
+                    <input type="submit" value="Sign up">
+                </form>
+                <br>
+                <p><a href="{% url 'gamelog:index' %}">
+                    登録をやめてトップページに戻る</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
